@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+    *{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: helvetica, arial;
+}
+
+article {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+}
+
+header {
+    background: deeppink;
+    padding: 1rem;
+}
+
+main {
+    background: whitesmoke;
+    color: #444;
+    padding: 0rem;
+}
+
+footer {
+    background: purple;
+    padding: 1rem;
+}
+
+    .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+        opacity: 1;
+  transition: 0.3s;
+        cursor: pointer;
+
+}
+
+    .button:hover {opacity: 0.5}
+
+
+    input[type=button], input[type=submit], input[type=reset] , input[type=file]{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.form-radio
+{
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     display: inline-block;
+     position: relative;
+     background-color: #f1f1f1;
+     color: #666;
+     top: 10px;
+     height: 30px;
+     width: 30px;
+     border: 0;
+     border-radius: 50px;
+     cursor: pointer;
+     margin-right: 7px;
+     outline: none;
+}
+.form-radio:checked::before
+{
+     position: absolute;
+     font: 13px/1 'Open Sans', sans-serif;
+     left: 11px;
+     top: 7px;
+     content: '\02143';
+     transform: rotate(40deg);
+}
+.form-radio:hover
+{
+     background-color: #f7f7f7;
+}
+.form-radio:checked
+{
+     background-color: #f1f1f1;
+}
+label
+{
+     font: 300 16px/1.7 'Open Sans', sans-serif;
+     color: #666;
+     cursor: pointer;
+}
+
+
+</style>
+</head>
+<body>
+
+<<article>
+    <header>
+        Page Header
+    </header>
+    <main>
+        <strong contenteditable>Hi, there's not much content, yet. You can write in here to expand the container.</strong><br>
+
+        <input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><label for="radio-one">Radio</label>
+        <input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><label for="radio-one">Radio</label>
+        <input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><label for="radio-one">Radio</label>
+        <input type="radio" name="demo" value="one" id="radio-one" class="form-radio" checked><label for="radio-one">Radio</label><br>
+
+
+        <input type= "file" name="file2"><br>
+        <input type= "month" name="month"><br>
+        <input type="submit" value="Nahraj soubor" class="button"><br>
+    </main>
+    <footer>
+        All rights reversed.
+        <br>
+        <small>I am always at the bottom of the page</small>
+    </footer>
+</article>
+
+</body>
+</html>

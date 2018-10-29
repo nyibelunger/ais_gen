@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My amazing site{% endblock %}</title>
+    <style>
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body {
+            width: 60%;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 0;
+            text-transform: uppercase;
+            text-align: center;
+            background: #d7ecff;
+            color: #0F6A8B;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-template-rows: 45px auto 45px;
+            grid-gap: 0em;
+            min-height: 100%;
+
+        }
+
+        header, footer, article {
+            grid-column: 1 / 4;
+        }
+
+        @media all and (max-width: 700px) {
+            aside,
+            article {
+                grid-column: 1 / 4;
+            }
+        }
+
+        /* Demo Specific Styles */
+
+        header {
+            padding-top: 0px;
+            background: #354ae6;
+        }
+
+        footer {
+            background: #beafe6;
+
+            padding-top: 10px;
+        }
+
+        article {
+            background: #c2cad5;
+            align-items: center;
+            justify-content: center;
+            padding-top: 50px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li:last-child {
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+<div class="grid">
+    <header>
+        <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li style="float:right"><a href="#about">About</a></li>
+        </ul>
+    </header>
+
+
+    <article>
+        <input type="radio" name="radio-one" checked><label for="radio-one">Radio</label><br>
+
+        <input type="file" name="file2"><br>
+        <input type="month" name="month"><br>
+        <input type="submit" value="Nahraj soubor" class="button"><br>
+        {% block content %}
+
+        {% endblock %}
+    </article>
+
+
+    <footer>
+        Footer
+    </footer>
+</div>
+</body>
+</html>

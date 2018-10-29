@@ -1,0 +1,20 @@
+<h1>{{ usr_input.text_to_show}}</h1>
+
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+<form action="{% url 'generator:detail_1'%}" method="post">
+ {% csrf_token %}
+
+{% for foo in usr_input.list_test %}
+    <input type="radio" name="zamestnanec" id="zamestnanec {{ forloop.counter }} " value="{{ foo }}">
+    <label for="zamestnanec {{ forloop.counter }} ">{{ foo }}</label><br>
+{% endfor %}
+<input type="submit" value="Vote"><br>
+
+</form>
+
+<p>Dnešní datum: {{ usr_input.usr_input_datum }}</p>
+
+<a href="{% url 'generator:index' %}">Index</a>

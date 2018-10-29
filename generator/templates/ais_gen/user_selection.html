@@ -1,0 +1,24 @@
+{% extends "ais_gen/base.html" %}
+
+{% block content %}
+
+<h1>Vyberte osobu, pro kterou chcete vygenerovat AIS</h1>
+
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+<form action="{% url 'generator:render_sel_us_ais'%}" method="post">
+    {% csrf_token %}
+    {% for key, value in user_select.items %}
+        <input type="radio" name="zamestnanec" id="zamestnanec {{ forloop.counter }} " value="{{key}}">
+        <label for="zamestnanec {{ forloop.counter }} ">{{ key }}</label><br>
+    {% endfor %}
+<input type="submit" value="Generovat AIS"><br>
+
+</form>
+
+
+<a href="{% url 'generator:index' %}">Index</a>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "ais_gen/base.html" %}
+
+{% block content %}
+
+    <h3>Zvol měsíc a rok, poté nahrej rozpis služeb na daný měsíc.</h3><br>
+
+    {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+
+    {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endif %}
+
+    {% comment %}<form action="{% url 'generator:input_date' %}" method="post">
+    {% csrf_token %}
+    {{ date_form }}
+    <input type="submit" value="Dále"><br>
+</form>{% endcomment %}
+
+    {% comment %} <form action="{% url 'generator:input_date' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="month" id="date" name="date" min="2000-03" value="{% now "Y" %}-{% now "m" %}"><br>
+        <span class="validity"></span><br>
+        <input type= "file" name="file"><br><br>
+        <input type="submit" value="Dále"><br>
+    </form><br>{% endcomment %}
+
+    <form action="{% url 'generator:input_date' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ date_form.date }}<br><br>
+        {{ date_form.file }}<br><br>
+
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <div class="g-recaptcha" data-sitekey="6LcBYncUAAAAANJxrHi-15DFKZPyNdP9bVmYwrrl"></div><br>
+
+        <input type="submit" value="Dále"><br>
+    </form><br>
+
+
+
+    <p> pozn. pokud používáte Internet Explorer, pak vepište datum ve formátu "ROK-MĚSÍC", např. leden 2018 jako
+        "2018-01". Vhodnější je však užít Chrome/Edge/Firefox.</p>
+
+{% endblock %}

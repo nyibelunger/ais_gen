@@ -1,0 +1,19 @@
+{% extends "ais_gen/base.html" %}
+
+{% block content %}
+
+<h1>Zde, prosím, nahrejte soubor se službama.</h1>
+
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+<br>
+
+<form action="{% url 'generator:input_excel' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type= "file" name="file">
+    <input type="submit" value="Nahraj soubor"><br>
+</form>
+
+
+{% endblock %}
